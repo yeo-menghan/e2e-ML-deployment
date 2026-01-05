@@ -1,2 +1,1 @@
-# application.py
-import App.drug_app  # noqa: F401
+from App.drug_app import app

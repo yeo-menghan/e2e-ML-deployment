@@ -5,15 +5,6 @@ ML Github Actions (CI) and AWS Beanstalk (CD) deployment practice
 
 ## Pipeline
 
-Preparing for AWS Beanstalk
-```bash
-uv venv .venv-app
-source .venv-app/bin/activate
-uv pip install -r App/requirements.txt
-uv add --active awsebcli
-eb init -p python-3.11 drug-classification
-```
-
 ## Results
 
 ## Resources

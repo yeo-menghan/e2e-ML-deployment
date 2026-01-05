@@ -1,1 +1,1 @@
-web: python application.py
+web: gunicorn application:app --bind 0.0.0.0:$PORT --pid /var/pids/web.pid --log-file -
