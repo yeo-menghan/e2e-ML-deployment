@@ -2,6 +2,7 @@ import gradio as gr
 import skops.io as sio
 import warnings
 from sklearn.exceptions import InconsistentVersionWarning
+import os
 
 # Suppress the version warnings
 warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
@@ -62,6 +63,20 @@ description = "Enter the details to correctly identify Drug type?"
 article = "This app is a part of the **[Beginner's Guide to CI/CD for Machine Learning](https://www.datacamp.com/tutorial/ci-cd-for-machine-learning)**. It teaches how to automate training, evaluation, and deployment of models to Hugging Face using GitHub Actions."
 
 
+# gr.Interface(
+#     fn=predict_drug,
+#     inputs=inputs,
+#     outputs=outputs,
+#     examples=examples,
+#     title=title,
+#     description=description,
+#     article=article,
+#     theme=gr.themes.Soft(),
+# ).launch()
+
+# bind to port 0.0.0.0 for AWS beanstalk deployment
+port = int(os.environ.get("PORT", 7860))
+
 gr.Interface(
     fn=predict_drug,
     inputs=inputs,
@@ -71,4 +86,7 @@ gr.Interface(
     description=description,
     article=article,
     theme=gr.themes.Soft(),
-).launch()
+).launch(
+    server_name="0.0.0.0",
+    server_port=port
+)
