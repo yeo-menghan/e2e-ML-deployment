@@ -1,6 +1,6 @@
 branch-defaults:
   main:
-    environment: null
+    environment: drug-classification-env
 global:
   application_name: drug-classification
   branch: null
